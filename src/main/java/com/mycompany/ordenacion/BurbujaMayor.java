@@ -16,7 +16,7 @@ public class BurbujaMayor {
     i, j; aux <- enteros
     A = Arreglo[1 ... N] de Enteros
 
-    Repetir con i desde N-1 hasta 1
+    Repetir con i desde N hasta 1
         Repetir con j desde 0 hasta i
     
         Si ( A[j] > A[j+1] ) entonces
