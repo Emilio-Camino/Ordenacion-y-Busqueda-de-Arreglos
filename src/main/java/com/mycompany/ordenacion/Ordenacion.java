@@ -18,10 +18,7 @@ public class Ordenacion {
         
         menuPrincipal();
     }
-    
-    
-    
-    
+
     //Metodo para crear un arreglo;
     
     public static int[] obtenerArreglo(){
