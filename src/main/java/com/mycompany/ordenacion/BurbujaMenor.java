@@ -16,7 +16,7 @@ public class BurbujaMenor {
     i, j; aux <- enteros
     A = Arreglo[1 ... N] de Enteros
 
-    Repetir con i desde 1 hasta N - 1
+    Repetir con i desde 1 hasta N
         Repetir con j desde N - 1 hasta i
 
         Si ( A[j - 1] > A[j] ) entonces
@@ -34,10 +34,10 @@ public class BurbujaMenor {
          //Se copia el arreglo para mantener al otro intacto;
          int[] arreglo = arregloDesordenado.clone();
          //Se recorre el arreglo
-         for (int i = 0; i < arreglo.length -1; i++){
+         for (int i = 0; i < arreglo.length - 1; i++){
              //Se realiza el ordenamiento moviendo elementos desde el final hacia el final del arreglo
              //Se compara desde el fin del arreglo hasta su inicio
-             for (int j = arreglo.length - 1; j > 0; j--){
+             for (int j = arreglo.length - 1; j > i; j--){
             
              //Si el elemento anterior es mayor que el elemento actual
              if(arreglo[j-1] > arreglo[j]){
