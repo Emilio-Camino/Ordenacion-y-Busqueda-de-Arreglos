@@ -7,6 +7,7 @@ package com.mycompany.ordenacion;
 import static com.mycompany.ordenacion.BurbujaMayor.ordenarBurbujaMayor;
 import static com.mycompany.ordenacion.BurbujaMenor.ordenarBurbujaMenor;
 import static com.mycompany.ordenacion.Insercion.ordenarInsercion;
+import static com.mycompany.ordenacion.Seleccion.ordenarSeleccion;
 import javax.swing.JOptionPane;
 /**
  *
@@ -91,12 +92,14 @@ public class Ordenacion {
                             + "Arreglo Ordenado: " + stringArreglo(ordenarBurbujaMayor(arreglo)) + "\n");
                     break;
                 case 3:
-                    JOptionPane.showMessageDialog(null, "ORDENACION BURBUJA INSERCION \n"
+                    JOptionPane.showMessageDialog(null, "ORDENACION  INSERCION \n"
                             + "Arreglo Desordenado: " + stringArreglo(arreglo) + "\n" 
                             + "Arreglo Ordenado: " + stringArreglo(ordenarInsercion(arreglo)) + "\n");
                     break;
                 case 4:
-                    
+                    JOptionPane.showMessageDialog(null, "ORDENACION SELECCION \n"
+                            + "Arreglo Desordenado: " + stringArreglo(arreglo) + "\n" 
+                            + "Arreglo Ordenado: " + stringArreglo(ordenarSeleccion(arreglo)) + "\n");
                     break;
                 case 5: 
                     break;
