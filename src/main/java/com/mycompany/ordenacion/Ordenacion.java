@@ -6,6 +6,9 @@ package com.mycompany.ordenacion;
 
 import static com.mycompany.ordenacion.BurbujaMayor.ordenarBurbujaMayor;
 import static com.mycompany.ordenacion.BurbujaMenor.ordenarBurbujaMenor;
+import static com.mycompany.ordenacion.BusquedaBinaria.busquedaBinaria;
+import static com.mycompany.ordenacion.BusquedaSecuencialDesordenada.buscarSecuencialDesordenada;
+import static com.mycompany.ordenacion.BusquedaSecuencialOrdenada.buscarSecuencialOrdenada;
 import static com.mycompany.ordenacion.Insercion.ordenarInsercion;
 import static com.mycompany.ordenacion.Seleccion.ordenarSeleccion;
 import javax.swing.JOptionPane;
@@ -38,7 +41,9 @@ public class Ordenacion {
      for(int i = 0; i < numerico.length; i++ ){
          try {
          numerico[i] = Integer.parseInt(entrada[i]);
-         } catch (NumberFormatException e){}
+         } catch (NumberFormatException e){
+             numerico[i] = 0;
+         }
          
      }
      return numerico;
@@ -120,6 +125,8 @@ public class Ordenacion {
      
     public static void menuBusqueda(int[] arreglo){
          int opcion;
+         int valorBuscado = 0;
+         int valorHallado = 0;
         do {
             String menu = "MENÚ BÚSQUEDA\n"
                     + "1. Busqueda Secuencial Desordenada\n"
@@ -133,17 +140,33 @@ public class Ordenacion {
             switch (opcion) {
                 case 1:
                     
+                    valorBuscado = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el dato a buscar"));
+                    valorHallado = buscarSecuencialDesordenada(arreglo, valorBuscado);
+                    
                     break;
                 case 2:
+                    valorBuscado = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el dato a buscar"));
                     
+                    
+                    int[] arregloOrdenado = ordenarSeleccion(arreglo);
+                    JOptionPane.showMessageDialog(null, "ORDENACION \n"
+                            + "Arreglo Desordenado: " + stringArreglo(arreglo) + "\n" 
+                            + "Arreglo Ordenado: " + stringArreglo(arregloOrdenado) + "\n");
+                            
+                    valorHallado = buscarSecuencialOrdenada(arregloOrdenado, valorBuscado);
                         
-                
+          
                     break;
                 case 3:
-                    
-                    
-                        
+                    valorBuscado = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el dato a buscar"));
+                    int posicionHallado = busquedaBinaria(arreglo, valorBuscado, 0, arreglo.length -1);
+                        if(posicionHallado != -1){
+                            JOptionPane.showMessageDialog(null, "Se halló el elemento " + arreglo[posicionHallado] + " en la posicion " + (posicionHallado + 1) );
+                        } else {
+                            JOptionPane.showMessageDialog(null, "No se halló el elemento ");
+                        }
                     break;
+
                 case 4:
                     arreglo = obtenerArreglo();
                     break;
@@ -183,4 +206,6 @@ public class Ordenacion {
             }
         } while (opcion != 0);
     }
+
+
 }

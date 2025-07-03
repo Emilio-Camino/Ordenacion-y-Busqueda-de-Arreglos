@@ -10,18 +10,21 @@ import javax.swing.JOptionPane;
  *
  * @author Emilio
  */
-public class BusquedaSecuencialDesordenada {
-    public static int buscarSecuencialDesordenada(int[] arregloDesordenado, int dato){
+public class BusquedaSecuencialOrdenada {
+    public static int buscarSecuencialOrdenada(int[] arregloOrdenado, int dato){
         int valorHallado = -1;
         int i = 0;
-        while(i < arregloDesordenado.length && arregloDesordenado[i] != dato){
+        int ultimoDatoLeido = 0;
+        while(i < arregloOrdenado.length && dato > arregloOrdenado[i]){
+            ultimoDatoLeido = arregloOrdenado[i];
             i++;
         }
-        if (i >= arregloDesordenado.length){
-            JOptionPane.showMessageDialog(null, "No se halló el elemento");
+        if (i >= arregloOrdenado.length || dato < ultimoDatoLeido){
+           JOptionPane.showMessageDialog(null, "No se halló el elemento"); 
         } else {
             JOptionPane.showMessageDialog(null, "Se halló el elemento " + dato + " en la posicion " + (i+1) );
             valorHallado = dato;
+        
         }
     return valorHallado;
     }
