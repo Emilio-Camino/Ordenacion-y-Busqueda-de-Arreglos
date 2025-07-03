@@ -3,6 +3,8 @@ com\mycompany\ordenacion\BusquedaSecuencialOrdenada.class
 com\mycompany\ordenacion\BurbujaMayor.class
 com\mycompany\ordenacion\BusquedaBinaria.class
 com\mycompany\ordenacion\BusquedaSecuencialDesordenada.class
+com\mycompany\ordenacion\MergeSort.class
 com\mycompany\ordenacion\Seleccion.class
 com\mycompany\ordenacion\Insercion.class
 com\mycompany\ordenacion\BurbujaMenor.class
+com\mycompany\ordenacion\CocktailSort.class

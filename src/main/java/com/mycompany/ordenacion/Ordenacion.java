@@ -9,7 +9,9 @@ import static com.mycompany.ordenacion.BurbujaMenor.ordenarBurbujaMenor;
 import static com.mycompany.ordenacion.BusquedaBinaria.busquedaBinaria;
 import static com.mycompany.ordenacion.BusquedaSecuencialDesordenada.buscarSecuencialDesordenada;
 import static com.mycompany.ordenacion.BusquedaSecuencialOrdenada.buscarSecuencialOrdenada;
+import static com.mycompany.ordenacion.CocktailSort.ordenarCocktailSort;
 import static com.mycompany.ordenacion.Insercion.ordenarInsercion;
+import static com.mycompany.ordenacion.MergeSort.ordenarMergeSort;
 import static com.mycompany.ordenacion.Seleccion.ordenarSeleccion;
 import javax.swing.JOptionPane;
 /**
@@ -78,8 +80,8 @@ public class Ordenacion {
                     + "2. Burbuja Descendente (Burbuja Mayor)\n"
                     + "3. Método de Inserción\n"
                     + "4. Método de Selección\n"
-                    + "5. Extra 1 \n"
-                    + "6. Extra 2 \n"
+                    + "5. Ordenacion de Cocteles \n"
+                    + "6. Ordenacion de Combinacion \n"
                     + "7. Redefinir al arreglo \n"
                     + "0. Salir";
 
@@ -107,8 +109,15 @@ public class Ordenacion {
                             + "Arreglo Ordenado: " + stringArreglo(ordenarSeleccion(arreglo)) + "\n");
                     break;
                 case 5: 
+                     JOptionPane.showMessageDialog(null, "ORDENACION COCKTAIL \n"
+                            + "Arreglo Desordenado: " + stringArreglo(arreglo) + "\n" 
+                            + "Arreglo Ordenado: " + stringArreglo(ordenarCocktailSort(arreglo)) + "\n");
                     break;
                 case 6:
+                    int[] arregloDesordenado = arreglo.clone();
+                     JOptionPane.showMessageDialog(null, "ORDENACION COMBINACION \n"
+                            + "Arreglo Desordenado: " + stringArreglo(arreglo) + "\n" 
+                            + "Arreglo Ordenado: " + stringArreglo(ordenarMergeSort(arregloDesordenado, 0, arreglo.length - 1)) + "\n");
                     break;
                 case 7:
                     arreglo = obtenerArreglo();
