@@ -2,23 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.ordenacion;
+package com.mycompany.ordenacionBusqueda;
 
-import static com.mycompany.ordenacion.BurbujaMayor.ordenarBurbujaMayor;
-import static com.mycompany.ordenacion.BurbujaMenor.ordenarBurbujaMenor;
-import static com.mycompany.ordenacion.BusquedaBinaria.busquedaBinaria;
-import static com.mycompany.ordenacion.BusquedaSecuencialDesordenada.buscarSecuencialDesordenada;
-import static com.mycompany.ordenacion.BusquedaSecuencialOrdenada.buscarSecuencialOrdenada;
-import static com.mycompany.ordenacion.CocktailSort.ordenarCocktailSort;
-import static com.mycompany.ordenacion.Insercion.ordenarInsercion;
-import static com.mycompany.ordenacion.MergeSort.ordenarMergeSort;
-import static com.mycompany.ordenacion.Seleccion.ordenarSeleccion;
+import static com.mycompany.ordenacionBusqueda.BurbujaMayor.ordenarBurbujaMayor;
+import static com.mycompany.ordenacionBusqueda.BurbujaMenor.ordenarBurbujaMenor;
+import static com.mycompany.ordenacionBusqueda.BusquedaBinaria.busquedaBinaria;
+import static com.mycompany.ordenacionBusqueda.BusquedaSecuencialDesordenada.buscarSecuencialDesordenada;
+import static com.mycompany.ordenacionBusqueda.BusquedaSecuencialOrdenada.buscarSecuencialOrdenada;
+import static com.mycompany.ordenacionBusqueda.CocktailSort.ordenarCocktailSort;
+import static com.mycompany.ordenacionBusqueda.Insercion.ordenarInsercion;
+import static com.mycompany.ordenacionBusqueda.MergeSort.ordenarMergeSort;
+import static com.mycompany.ordenacionBusqueda.Seleccion.ordenarSeleccion;
 import javax.swing.JOptionPane;
 /**
  *
  * @author Emilio
  */
-public class Ordenacion {
+public class OrdenacionBusqueda {
     
     public static void main(String[] args) {
         
@@ -27,23 +27,30 @@ public class Ordenacion {
 
     //Metodo para crear un arreglo;
     
+    //Se obtiene un arreglo dada una entrada
     public static int[] obtenerArreglo(){
+        //Se recibe la entrada y se tokenixa cada el elemento
         String numeros = JOptionPane.showInputDialog("Ingrese los valores que desea ingresar al arreglo, separados por un espacio");
         String entrada = numeros.trim();
         String[] tokens = numeros.split("\\s+");
+        //Se convierte el arreglo de String a arreglos enteros
         int[] arreglo = arregloNumerico(tokens);
     
         return arreglo;
     }
     
-    
+    //Se convierte el arreglo de String a uno numerico
     public static int[] arregloNumerico(String[] entrada){
-     int[] numerico = new int[entrada.length];
+        //Se crea un arreglo de enteros del mismo tamanio que el de String
+        int[] numerico = new int[entrada.length];
      
+     //Por cada elemento del arreglo de String
      for(int i = 0; i < numerico.length; i++ ){
          try {
+         //Se parsea el String a un entero    
          numerico[i] = Integer.parseInt(entrada[i]);
          } catch (NumberFormatException e){
+             //Si falla se asigna 0 por defecto
              numerico[i] = 0;
          }
          
@@ -51,21 +58,62 @@ public class Ordenacion {
      return numerico;
     }
     
+    /*
+    Algoritmo StringArreglo(A)
+    A = Arreglo[1 ... N] de Enteros
+
+    Si (A es nulo) entonces
+        Retornar "El arreglo es nulo"
+    Fin Si
+
+    indiceMaximo ← N - 1
+
+    Si (indiceMaximo = -1) entonces
+        Retornar "El arreglo está vacío: []"
+    Fin Si
+
+    b ← "[" // Inicializa una cadena
+
+    Repetir con i desde 0 hasta indiceMaximo
+        b ← b + A[i]
+
+        Si (i = indiceMaximo) entonces
+            b ← b + "]"
+            Retornar b
+        Fin Si
+
+        b ← b + ", "
+    Fin Repetir
+Fin Algoritmo
+    */
     
-    //Metodo para imprimir el Arreglo
-     public static String stringArreglo(int[] a) {
+    // Metodo para convertir un arreglo en una cadena de texto
+    public static String stringArreglo(int[] a) {
+        // Si el arreglo es nulo, se devuelve un mensaje
         if (a == null)
             return "El arreglo es nulo";
-        int iMax = a.length - 1;
-        if (iMax == -1)
-            return "El arreglo está vacío";
 
+        // Se obtiene el ultimo indice del arreglo
+        int indiceMaximo = a.length - 1;
+
+        // Si el arreglo esta vacio, se devuelve un mensaje
+        if (indiceMaximo == -1)
+            return "El arreglo esta vacio: []";
+
+        // Se crea un objeto para construir la cadena
         StringBuilder b = new StringBuilder();
         b.append('[');
+
+        // Se recorre el arreglo
         for (int i = 0; ; i++) {
+            // Se agrega el elemento actual al texto
             b.append(a[i]);
-            if (i == iMax)
+
+            // Si es el ultimo elemento, se cierra el corchete y se devuelve la cadena
+            if (i == indiceMaximo)
                 return b.append(']').toString();
+
+            // Si no es el ultimo, se agrega una coma y espacio
             b.append(", ");
         }
     }

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.ordenacion;
+package com.mycompany.ordenacionBusqueda;
 
 /**
  *
@@ -31,24 +31,25 @@ lAgoritmo Seleccion(A, N)
     Fin Repetir
 Fin Algoritmo
     */
-    
-    
     public static int[]ordenarSeleccion(int[] arregloDesordenado){
          //Se copia el arreglo para mantener al otro intacto;
         int[] arreglo = arregloDesordenado.clone(); 
         int i, j, menor, indiceMenor;
-
+        
+        //Se recorre el arreglo
         for (i = 0; i < arreglo.length - 1; i++) {
             menor = arreglo[i];
             indiceMenor = i;
-
+            //Se recorre desde el elemento siguiente de i hasta el fin del arreglo
             for (j = i + 1; j < arreglo.length; j++) {
+                //Si el valor leido es menor que el menor almacenado
                 if (arreglo[j] < menor) {
-                    menor = arreglo[j];
-                    indiceMenor = j;
+                    menor = arreglo[j]; //Defino menor con el valor leido
+                    indiceMenor = j; //Se actualiza el indiceMenor
                 }
-            }
+            }   //El valor del arreglo con indiceMenor toma el valor del arreglo i
                 arreglo[indiceMenor] = arreglo[i];
+                //El arreglo en i toma el valor almacenado en menor
                 arreglo[i] = menor;
         }
 
